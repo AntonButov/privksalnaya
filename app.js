@@ -10,10 +10,10 @@ const CONFIG = {
   /** Полный URL формы Formspree (бронь и «заказать звонок») */
   formspreeEndpoint: "https://formspree.io/f/xojrdgjq",
   /** логин Telegram без @ */
-  telegramUser: "",
+  telegramUser: "antonbutov",
   /** только цифры, формат 79001234567 */
-  whatsappPhone: "",
-  maxGuests: 8,
+  whatsappPhone: "79896377901",
+  maxGuests: 3,
 };
 
 const IMAGES = [
@@ -34,10 +34,10 @@ const IMAGES = [
 const STRINGS = {
   ru: {
     brand: "Привокзальная · Ростов",
-    heroTitle: "Квартира посуточно в Ростове‑на‑Дону у вокзала и набережной",
+    heroTitle: "Однокомнатная квартира посуточно в Ростове‑на‑Дону у вокзала и набережной",
     addressLine: "Привокзальная ул. 3/1, г. Ростов-на-Дону",
     heroLead:
-      "Если вы искали, где снять квартиру в Ростове посуточно рядом с центром и вокзалами — это жильё на Привокзальной: новый дом, двор с детской площадкой, набережная Дона рядом. Актуальные фото ниже, как при запросе «снять квартиру посуточно с фото». Связь и бронирование напрямую от хозяина через форму на сайте — без посредников.",
+      "Если вы искали, где снять однокомнатную квартиру в Ростове посуточно рядом с центром и вокзалами — это жильё на Привокзальной: новый дом, двор с детской площадкой, набережная Дона рядом. Актуальные фото ниже, как при запросе «снять квартиру посуточно с фото». Связь и бронирование напрямую от хозяина через форму на сайте — без посредников.",
     priceHint: "Ориентир от 3000 ₽ за сутки — точную сумму согласуем после заявки",
     bookCta: "Оставить заявку",
     callCta: "Заказать звонок",
@@ -63,10 +63,9 @@ const STRINGS = {
       "Многие ищут квартиры посуточно в Ростове‑на‑Дону по районам или «у метро» — здесь удобная подсадка к центру и к вокзалам: спокойный новый комплекс и быстрый выход в деловую часть города. Рядом набережная, родник для купания и зоны отдыха у воды.",
     amenities: "Удобства",
     amenitiesList: [
-      "Полноценная квартира для коротких и длинных остановок (посуточная аренда квартиры)",
-      "Кухня для готовки, быстрый Wi‑Fi",
+      "Однокомнатная квартира для коротких и длинных остановок (посуточная аренда квартиры)",
+      "Кухня для готовки, быстрый Wi‑Fi, стиральная машина",
       "Реальные фото в галерее — без «кота в мешке»",
-      "Семьи с детьми — по согласованию",
     ],
     bookingTitle: "Календарь и даты заявки",
     bookingHelp:
@@ -105,21 +104,23 @@ const STRINGS = {
     phPhone: "+7 …",
     phGuests: "Например, 2",
     phMessage: "Командировка, дети, животные, время прибытия…",
+    contactRequiredHint: "Для заявки укажите телефон или email.",
     formSubmit: "Отправить заявку",
     formPrivacy:
       "Данные уходят на Formspree; хранение и обработка — по правилам сервиса Formspree.",
     formNotConfigured:
       "Укажите в app.js адрес формы: CONFIG.formspreeEndpoint = \"https://formspree.io/f/…\"",
+    contactRequiredError: "Укажите телефон или email, чтобы я мог связаться с вами.",
     calEmpty: "Нажмите день заезда, затем день выезда.",
     calSelected: (a, b, n) =>
       `Заезд ${a} · Выезд ${b} · ${n} ${n === 1 ? "ночь" : n < 5 ? "ночи" : "ночей"}`,
   },
   en: {
     brand: "Privokzalnaya · Rostov",
-    heroTitle: "Daily rent apartment in Rostov-on-Don near the station & embankment",
+    heroTitle: "One-bedroom apartment for daily rent in Rostov-on-Don near station & embankment",
     addressLine: "3/1 Privokzalnaya St., Rostov-on-Don, Russia",
     heroLead:
-      "Looking for a short‑term rental in Rostov near the centre and railway area? This flat on Privokzalnaya is in a new building with a kids’ playground and the Don embankment nearby. Real photos in the gallery — book directly from the host via the on‑site form (no middlemen).",
+      "Looking for a one-bedroom short‑term rental in Rostov near the centre and railway area? This flat on Privokzalnaya is in a new building with a kids’ playground and the Don embankment nearby. Real photos in the gallery — book directly from the host via the on‑site form (no middlemen).",
     priceHint: "From ~3000 RUB/night — final rate after we confirm dates",
     bookCta: "Request a booking",
     callCta: "Request a call",
@@ -146,9 +147,8 @@ const STRINGS = {
     amenities: "Amenities",
     amenitiesList: [
       "Full apartment for short or longer stays",
-      "Kitchen, fast Wi‑Fi",
+      "Kitchen, fast Wi‑Fi, washing machine",
       "Real photos in the gallery",
-      "Families — on request",
     ],
     bookingTitle: "Calendar & dates",
     bookingHelp:
@@ -187,9 +187,11 @@ const STRINGS = {
     phPhone: "+7 …",
     phGuests: "e.g. 2",
     phMessage: "Business trip, kids, pets, arrival time…",
+    contactRequiredHint: "Please provide either a phone number or an email.",
     formSubmit: "Send request",
     formPrivacy: "Submissions go to Formspree; data handling follows Formspree’s policies.",
     formNotConfigured: 'Set CONFIG.formspreeEndpoint = "https://formspree.io/f/…" in app.js',
+    contactRequiredError: "Please provide a phone number or an email so I can contact you.",
     calEmpty: "Tap check-in day, then check-out day.",
     calSelected: (a, b, n) =>
       `Check-in ${a} · Check-out ${b} · ${n} ${n === 1 ? "night" : "nights"}`,
@@ -430,6 +432,27 @@ function bindFormspree(form) {
   }
 }
 
+function validateBookingContact() {
+  const form = document.getElementById("rent-form");
+  if (!form) return true;
+  const email = form.querySelector('input[name="email"]');
+  const phone = form.querySelector('input[name="phone"]');
+  if (!email || !phone) return true;
+
+  const hasEmail = email.value.trim().length > 0;
+  const hasPhone = phone.value.trim().length > 0;
+  const message = t("contactRequiredError");
+
+  email.setCustomValidity("");
+  phone.setCustomValidity("");
+
+  if (hasEmail || hasPhone) return true;
+
+  email.setCustomValidity(message);
+  phone.setCustomValidity(message);
+  return false;
+}
+
 function initSpreeForms() {
   bindFormspree(document.getElementById("rent-form"));
   bindFormspree(document.getElementById("callback-form"));
@@ -444,6 +467,21 @@ function init() {
   initSpreeForms();
   applyI18n();
   initGallery();
+
+  const rentForm = document.getElementById("rent-form");
+  const rentEmail = rentForm?.querySelector('input[name="email"]');
+  const rentPhone = rentForm?.querySelector('input[name="phone"]');
+  rentForm?.addEventListener("submit", (event) => {
+    if (!validateBookingContact()) {
+      event.preventDefault();
+      (rentPhone?.value.trim() ? rentEmail : rentPhone)?.reportValidity();
+    }
+  });
+  [rentEmail, rentPhone].forEach((field) => {
+    field?.addEventListener("input", () => {
+      validateBookingContact();
+    });
+  });
 
   document.querySelectorAll('button[name="lang"]').forEach((btn) => {
     btn.addEventListener("click", () => {
