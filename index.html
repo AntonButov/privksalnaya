@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <title>Привокзальная ул. 3/1 · посуточно · г. Ростов-на-Дону</title>
+    <meta
+      name="description"
+      content="Снять квартиру посуточно в Ростове-на-Дону у вокзала и набережной: Привокзальная 3/1, новый дом, фото, без посредников. Заявка на бронирование с сайта."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="#" data-i18n="brand">Привокзальная · Ростов</a>
+        <div class="top-actions">
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button type="button" name="lang" value="ru" aria-pressed="true">RU</button>
+            <button type="button" name="lang" value="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn-ghost" href="#callback" data-i18n="callCta">Заказать звонок</a>
+          <a class="btn btn-primary" href="#booking" data-i18n="bookCta">Забронировать</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="price-pill" data-i18n="priceHint"></span>
+          <h1 data-i18n="heroTitle"></h1>
+          <p class="hero-lead" data-i18n="heroLead"></p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#booking" data-i18n="bookCta"></a>
+            <a class="btn btn-ghost" href="#callback" data-i18n="callCta"></a>
+            <a class="btn btn-ghost" data-msg-telegram href="#" target="_blank" rel="noopener">Telegram</a>
+            <a class="btn btn-ghost" data-msg-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+          <ul class="meta-list">
+            <li data-i18n="metaCity"></li>
+            <li data-i18n="metaTagline"></li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <img id="hero-img" src="" alt="" width="1020" height="690" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery wrap">
+      <h2 data-i18n="galleryTitle">Фото квартиры</h2>
+      <div class="thumbs" id="thumbs"></div>
+    </section>
+
+    <section class="section wrap two-col">
+      <div>
+        <h2 data-i18n="location"></h2>
+        <div class="prose">
+          <p data-i18n="locationText"></p>
+        </div>
+        <h2 data-i18n="amenities" style="margin-top: 1.5rem"></h2>
+        <ul class="bullets" data-i18n="amenitiesList"></ul>
+      </div>
+      <div>
+        <div class="booking-card">
+          <h3 data-i18n="bookingTitle"></h3>
+          <p class="prose" style="font-size: 0.95rem; margin-bottom: 1rem">
+            <span data-i18n="bookingHelp"></span>
+          </p>
+          <div class="calendar-nav">
+            <button type="button" id="cal-prev" aria-label="Prev">←</button>
+            <button type="button" id="cal-clear" class="btn btn-ghost" style="border-radius: 8px; font-size: 0.85rem" data-i18n="clear"></button>
+            <button type="button" id="cal-next" aria-label="Next">→</button>
+          </div>
+          <div class="cal-months" id="cal-host"></div>
+          <div class="range-summary" id="range-summary"></div>
+          <div class="messengers">
+            <a class="messenger btn-primary" href="#booking" data-i18n="bookCta"></a>
+            <a class="messenger" href="#callback" data-i18n="callCta"></a>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--muted); margin: 0.75rem 0 0" data-i18n="writeUs"></p>
+          <div class="messengers" style="margin-top: 0.5rem">
+            <a class="messenger" data-msg-telegram href="#" target="_blank" rel="noopener">Telegram</a>
+            <a class="messenger" data-msg-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="callback">
+      <h2 data-i18n="callSectionTitle"></h2>
+      <p class="prose" data-i18n="callSectionLead"></p>
+      <form id="callback-form" class="rent-form" method="POST" action="#" novalidate>
+        <input type="hidden" name="_subject" id="callback-subject" value="" />
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true" />
+        <label>
+          <span data-i18n="labelName"></span>
+          <input type="text" name="name" required autocomplete="name" data-i18n-placeholder="phName" />
+        </label>
+        <label>
+          <span data-i18n="labelCallbackPhone"></span>
+          <input type="tel" name="phone" required autocomplete="tel" data-i18n-placeholder="phPhone" />
+        </label>
+        <label>
+          <span data-i18n="labelEmailOptional"></span>
+          <input type="email" name="email" autocomplete="email" data-i18n-placeholder="phEmail" />
+        </label>
+        <label>
+          <span data-i18n="labelCallbackTime"></span>
+          <input type="text" name="preferred_time" data-i18n-placeholder="phCallbackTime" />
+        </label>
+        <label>
+          <span data-i18n="labelCallbackComment"></span>
+          <textarea name="message" rows="3" data-i18n-placeholder="phCallbackComment"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary" data-i18n="callSubmit"></button>
+        <p class="prose" style="font-size: 0.82rem; margin: 0" data-i18n="formPrivacy"></p>
+      </form>
+    </section>
+
+    <section class="section wrap" id="booking">
+      <h2 data-i18n="formSectionTitle"></h2>
+      <p class="prose" data-i18n="formSectionLead"></p>
+      <form id="rent-form" class="rent-form" method="POST" action="#" novalidate>
+        <input type="hidden" name="_subject" id="rent-subject" value="" />
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true" />
+        <label>
+          <span data-i18n="labelName"></span>
+          <input type="text" name="name" required autocomplete="name" data-i18n-placeholder="phName" />
+        </label>
+        <label>
+          <span data-i18n="labelEmail"></span>
+          <input type="email" name="email" required autocomplete="email" data-i18n-placeholder="phEmail" />
+        </label>
+        <label>
+          <span data-i18n="labelPhone"></span>
+          <input type="tel" name="phone" autocomplete="tel" data-i18n-placeholder="phPhone" />
+        </label>
+        <div class="form-row">
+          <label>
+            <span data-i18n="labelCheckin"></span>
+            <input type="date" name="checkin" id="field-checkin" />
+          </label>
+          <label>
+            <span data-i18n="labelCheckout"></span>
+            <input type="date" name="checkout" id="field-checkout" />
+          </label>
+        </div>
+        <label>
+          <span data-i18n="labelGuests"></span>
+          <input type="number" name="guests" min="1" max="8" value="2" data-i18n-placeholder="phGuests" />
+        </label>
+        <label>
+          <span data-i18n="labelMessage"></span>
+          <textarea name="message" rows="4" data-i18n-placeholder="phMessage"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary" data-i18n="formSubmit"></button>
+        <p class="prose" style="font-size: 0.82rem; margin: 0" data-i18n="formPrivacy"></p>
+      </form>
+    </section>
+
+    <section class="section wrap">
+      <h2 data-i18n="reviewsTitle"></h2>
+      <p class="prose" data-i18n="reviewsIntro"></p>
+      <div class="reviews-grid" style="margin-top: 1rem">
+        <blockquote class="review">
+          <p data-i18n="reviewSample1"></p>
+          <cite data-i18n="reviewCite"></cite>
+        </blockquote>
+        <blockquote class="review">
+          <p data-i18n="reviewSample2"></p>
+          <cite data-i18n="reviewCite"></cite>
+        </blockquote>
+      </div>
+      <p style="margin-top: 1rem">
+        <a href="#booking" data-i18n="afterReviewsCta"></a>
+      </p>
+    </section>
+
+    <section class="section wrap">
+      <h2 data-i18n="mapTitle"></h2>
+      <p class="prose" style="margin-bottom: 0.75rem" data-i18n="addressLine"></p>
+      <div class="map-embed">
+        <iframe
+          title="Карта · Привокзальная ул. 3/1"
+          src="https://yandex.ru/map-widget/v1/?ll=39.6965475%2C47.2108824&z=17&l=map&pt=39.6965475%2C47.2108824%2Cpm2rdm"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <p data-i18n="footerNote"></p>
+    </footer>
+
+    <div class="fab-bar wrap">
+      <a class="btn btn-ghost" href="#callback" style="flex: 1; min-width: 0; max-width: 120px" data-i18n="fabCall"></a>
+      <a class="btn btn-primary" href="#booking" style="flex: 1; min-width: 0; max-width: 140px" data-i18n="fabBook"></a>
+      <a class="btn btn-ghost" data-msg-telegram href="#" target="_blank" rel="noopener" style="flex: 1; min-width: 0; max-width: 120px" data-i18n="fabMsg"></a>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
