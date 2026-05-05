@@ -52,6 +52,7 @@ const STRINGS = {
     phCallbackTime: "Например, сегодня после 18:00",
     phCallbackComment: "Вопрос по датам, заселению…",
     callSubmit: "Жду звонка",
+    callPhoneRequiredError: "Для обратного звонка укажите номер телефона.",
     fabCall: "Звонок",
     checkDates: "Выберите даты заезда и выезда",
     guests: "гостей",
@@ -78,6 +79,12 @@ const STRINGS = {
       "Удобно добраться от вокзала, тихий двор, чисто. Набережная рядом — вечером гуляли без такси.",
     reviewSample2:
       "Новый дом, детям понравилась площадка во дворе. Заселение без сюрпризов.",
+    reviewSample3:
+      "Квартира свежая и аккуратная, всё как на фото. Быстро подтвердили бронь и были на связи.",
+    reviewSample4:
+      "Удобная локация для командировки: до центра недалеко, вечером спокойно отдохнули.",
+    reviewSample5:
+      "Понравилось, что есть стиральная машина и нормальная кухня — для нескольких дней очень удобно.",
     mapTitle: "Как добраться",
     footerNote:
       "Информация на странице носит справочный характер. Условия, залог и оплата — в переписке после заявки.",
@@ -135,6 +142,7 @@ const STRINGS = {
     phCallbackTime: "e.g. today after 6 pm",
     phCallbackComment: "Dates, check-in…",
     callSubmit: "Request a call",
+    callPhoneRequiredError: "Phone number is required for a callback request.",
     fabCall: "Call",
     checkDates: "Pick check-in and check-out",
     guests: "guests",
@@ -161,6 +169,12 @@ const STRINGS = {
       "Easy from the station, quiet courtyard, clean. Evening walks on the embankment without needing a taxi.",
     reviewSample2:
       "New building, kids loved the playground. Straightforward check-in.",
+    reviewSample3:
+      "Fresh and tidy flat, exactly like in the photos. Booking was confirmed quickly and communication was easy.",
+    reviewSample4:
+      "Great location for a business trip: close enough to the centre and quiet at night.",
+    reviewSample5:
+      "The washing machine and proper kitchen were a big plus for a multi-day stay.",
     mapTitle: "Getting here",
     footerNote:
       "Information here is indicative; terms, deposit and payment are agreed after your request.",
@@ -453,6 +467,20 @@ function validateBookingContact() {
   return false;
 }
 
+function validateCallbackPhone() {
+  const form = document.getElementById("callback-form");
+  if (!form) return true;
+  const phone = form.querySelector('input[name="phone"]');
+  if (!phone) return true;
+
+  const hasPhone = phone.value.trim().length > 0;
+  phone.setCustomValidity("");
+  if (hasPhone) return true;
+
+  phone.setCustomValidity(t("callPhoneRequiredError"));
+  return false;
+}
+
 function initSpreeForms() {
   bindFormspree(document.getElementById("rent-form"));
   bindFormspree(document.getElementById("callback-form"));
@@ -481,6 +509,18 @@ function init() {
     field?.addEventListener("input", () => {
       validateBookingContact();
     });
+  });
+
+  const callbackForm = document.getElementById("callback-form");
+  const callbackPhone = callbackForm?.querySelector('input[name="phone"]');
+  callbackForm?.addEventListener("submit", (event) => {
+    if (!validateCallbackPhone()) {
+      event.preventDefault();
+      callbackPhone?.reportValidity();
+    }
+  });
+  callbackPhone?.addEventListener("input", () => {
+    validateCallbackPhone();
   });
 
   document.querySelectorAll('button[name="lang"]').forEach((btn) => {
