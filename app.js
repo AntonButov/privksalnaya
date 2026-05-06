@@ -31,6 +31,15 @@ const IMAGES = [
   u.startsWith("//") ? "https:" + u : u.startsWith("http") ? u : "https://" + u
 );
 
+/** Панорамы Ростова-на-Дону: Wikimedia Commons, CC BY 4.0 (не интерьер квартиры). */
+const ROSTOV_VIEWS = [
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Rostov-on-Don%2C_Don_River%2C_City%2C_Russia.jpg/1920px-Rostov-on-Don%2C_Don_River%2C_City%2C_Russia.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rostov-on-Don%2C_Panorama_of_Rostov-on-Don_and_Don_River%2C_Russia.jpg/1920px-Rostov-on-Don%2C_Panorama_of_Rostov-on-Don_and_Don_River%2C_Russia.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Rostov-on-Don%2C_Skyline_2%2C_Russia.jpg/1920px-Rostov-on-Don%2C_Skyline_2%2C_Russia.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Rostov-on-Don%2C_Quietly_Flows_the_Don%2C_Russia.jpg/1920px-Rostov-on-Don%2C_Quietly_Flows_the_Don%2C_Russia.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Rostov-on-Don%2C_Don_River%2C_Russia.jpg/1920px-Rostov-on-Don%2C_Don_River%2C_Russia.jpg",
+];
+
 const STRINGS = {
   ru: {
     brand: "Привокзальная · Ростов",
@@ -91,6 +100,12 @@ const STRINGS = {
     fabBook: "Заявка",
     fabMsg: "Чат",
     galleryTitle: "Фото квартиры",
+    cityViewsTitle: "Ростов у Дона — виды рядом",
+    cityViewsLead:
+      "Набережная, панорамы центра и широкий Дон — то, ради чего гости часто выбирают остановку ближе к воде и прогулкам по городу.",
+    cityViewsCredit: "Иллюстрации города с",
+    cityViewsLicense: "· лицензия CC BY 4.0 (не фото квартиры).",
+    cityViewsAlt: "Ростов-на-Дону, река Дон, вид на город",
     reviewCite: "— гость",
     metaCity: "Ростов‑на‑Дону",
     metaTagline: "Посуточно · напрямую · с фото",
@@ -181,6 +196,12 @@ const STRINGS = {
     fabBook: "Book",
     fabMsg: "Chat",
     galleryTitle: "Photos",
+    cityViewsTitle: "Rostov-on-Don by the Don — nearby views",
+    cityViewsLead:
+      "Embankments, skyline and the wide Don — what many visitors come for when they stay close to the water and evening walks.",
+    cityViewsCredit: "City photos from",
+    cityViewsLicense: "· CC BY 4.0 (not the apartment interior).",
+    cityViewsAlt: "Rostov-on-Don, Don River, city view",
     reviewCite: "— guest",
     metaCity: "Rostov-on-Don",
     metaTagline: "Daily rent · direct · photos",
@@ -430,6 +451,21 @@ function initGallery() {
   });
 }
 
+function initCityViews() {
+  const host = document.getElementById("city-grid");
+  if (!host) return;
+  if (!host.dataset.built) {
+    host.innerHTML = ROSTOV_VIEWS.map(
+      (src) =>
+        `<figure class="city-card"><img src="${src}" alt="" loading="lazy" width="960" height="600" decoding="async" /></figure>`
+    ).join("");
+    host.dataset.built = "1";
+  }
+  host.querySelectorAll("img").forEach((img) => {
+    img.alt = t("cityViewsAlt");
+  });
+}
+
 function formspreeReady() {
   const ep = (CONFIG.formspreeEndpoint || "").trim();
   return ep.startsWith("https://formspree.io/");
@@ -495,6 +531,7 @@ function init() {
   initSpreeForms();
   applyI18n();
   initGallery();
+  initCityViews();
 
   const rentForm = document.getElementById("rent-form");
   const rentEmail = rentForm?.querySelector('input[name="email"]');
@@ -531,6 +568,7 @@ function init() {
       syncMessengerLinks();
       const main = document.getElementById("hero-img");
       if (main) main.alt = t("heroTitle");
+      initCityViews();
     });
   });
 
