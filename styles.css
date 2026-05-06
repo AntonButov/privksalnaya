@@ -119,6 +119,11 @@ header.top {
   align-items: start;
 }
 
+/* Lets the text column shrink so long lines wrap instead of overflowing the grid. */
+.hero-copy {
+  min-width: 0;
+}
+
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -140,6 +145,7 @@ header.top {
 
 .price-pill {
   display: inline-block;
+  max-width: 100%;
   padding: 0.35rem 0.85rem;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -147,6 +153,7 @@ header.top {
   font-size: 0.95rem;
   font-weight: 600;
   white-space: pre-line;
+  overflow-wrap: break-word;
   margin-bottom: 1.25rem;
 }
 
