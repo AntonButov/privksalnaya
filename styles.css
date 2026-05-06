@@ -146,6 +146,7 @@ header.top {
   border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 600;
+  white-space: pre-line;
   margin-bottom: 1.25rem;
 }
 
