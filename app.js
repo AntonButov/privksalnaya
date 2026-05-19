@@ -47,7 +47,7 @@ const STRINGS = {
     addressLine: "Привокзальная ул. 3/1, г. Ростов-на-Дону",
     heroLead:
       "Если вы искали, где снять однокомнатную квартиру в Ростове посуточно рядом с центром и вокзалами — это жильё на Привокзальной: новый дом, двор с детской площадкой, набережная Дона рядом. Актуальные фото ниже, как при запросе «снять квартиру посуточно с фото». Связь и бронирование напрямую от хозяина через форму на сайте — без посредников.",
-    priceHint: "3000 – сутки\n2500 – неделя\n2000 – более 2х недель",
+    priceHint: "2500 – сутки\n2000 – неделя\n1500 – более 2х недель",
     bookCta: "Оставить заявку",
     callCta: "Заказать звонок",
     callSectionTitle: "Заказать обратный звонок",
@@ -143,7 +143,7 @@ const STRINGS = {
     addressLine: "3/1 Privokzalnaya St., Rostov-on-Don, Russia",
     heroLead:
       "Looking for a one-bedroom short‑term rental in Rostov near the centre and railway area? This flat on Privokzalnaya is in a new building with a kids’ playground and the Don embankment nearby. Real photos in the gallery — book directly from the host via the on‑site form (no middlemen).",
-    priceHint: "From ~3000 RUB/night — final rate after we confirm dates",
+    priceHint: "2500 – night\n2000 – week\n1500 – 2+ weeks",
     bookCta: "Request a booking",
     callCta: "Request a call",
     callSectionTitle: "Request a call back",
