@@ -16,21 +16,6 @@ const CONFIG = {
   maxGuests: 3,
 };
 
-const IMAGES = [
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/1020x690/69f4853b880d1.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/711x450/69f4853cb2d23.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/1020x690/69f4853dc78b8.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/1020x690/69f4853ec7993.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/69f4853fa6102.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/69f485408ce3f.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/69f485419bfb9.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/69f48542ad18a.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/69f485438e886.jpg",
-  "https://static.sutochno.ru/doc/files/objects/2/297/384/69f4854480a97.jpg",
-].map((u) =>
-  u.startsWith("//") ? "https:" + u : u.startsWith("http") ? u : "https://" + u
-);
-
 /** Панорамы Ростова-на-Дону: Wikimedia Commons, CC BY 4.0 (не интерьер квартиры). */
 const ROSTOV_VIEWS = [
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Rostov-on-Don%2C_Don_River%2C_City%2C_Russia.jpg/1920px-Rostov-on-Don%2C_Don_River%2C_City%2C_Russia.jpg",
@@ -100,6 +85,7 @@ const STRINGS = {
     fabBook: "Заявка",
     fabMsg: "Чат",
     galleryTitle: "Фото квартиры",
+    viewAllPhotos: "Посмотреть все фото",
     cityViewsTitle: "Ростов у Дона — виды рядом",
     cityViewsLead:
       "Набережная, панорамы центра и широкий Дон — то, ради чего гости часто выбирают остановку ближе к воде и прогулкам по городу.",
@@ -196,6 +182,7 @@ const STRINGS = {
     fabBook: "Book",
     fabMsg: "Chat",
     galleryTitle: "Photos",
+    viewAllPhotos: "View all photos",
     cityViewsTitle: "Rostov-on-Don by the Don — nearby views",
     cityViewsLead:
       "Embankments, skyline and the wide Don — what many visitors come for when they stay close to the water and evening walks.",

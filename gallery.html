@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <title>Фото квартиры · Привокзальная · Ростов-на-Дону</title>
+    <meta
+      name="description"
+      content="Все фото однокомнатной квартиры посуточно на Привокзальной 3/1, Ростов-на-Дону — увеличение и просмотр в полном размере."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="gallery-page">
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="index.html" data-i18n="brand">Привокзальная · Ростов</a>
+        <div class="top-actions">
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button type="button" name="lang" value="ru" aria-pressed="true">RU</button>
+            <button type="button" name="lang" value="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn-primary" href="index.html#booking" data-i18n="bookCta">Забронировать</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap gallery-page-main">
+      <p class="gallery-back">
+        <a href="index.html" data-i18n="backHome">← На главную</a>
+      </p>
+      <h1 data-i18n="galleryPageTitle">Фото квартиры</h1>
+      <p class="prose gallery-page-hint" data-i18n="galleryPageHint">
+        Нажмите на фото, чтобы открыть увеличение. Колёсико мыши, кнопки +/− или жест pinch на телефоне.
+      </p>
+      <div class="photo-grid" id="photo-grid"></div>
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <div class="lightbox-backdrop" data-lightbox-close></div>
+      <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <h2 class="visually-hidden" id="lightbox-title" data-i18n="lightboxTitle">Просмотр фото</h2>
+        <div class="lightbox-top">
+          <span class="lightbox-counter" id="lightbox-counter" aria-live="polite"></span>
+          <div class="lightbox-zoom" role="group" aria-label="Zoom">
+            <button type="button" class="lightbox-btn" id="zoom-out" aria-label="Zoom out">−</button>
+            <span class="lightbox-zoom-level" id="zoom-level">100%</span>
+            <button type="button" class="lightbox-btn" id="zoom-in" aria-label="Zoom in">+</button>
+            <button type="button" class="lightbox-btn lightbox-btn-text" id="zoom-reset" data-i18n="zoomReset">
+              Сброс
+            </button>
+          </div>
+          <button type="button" class="lightbox-btn lightbox-close" id="lightbox-close" data-i18n="close">
+            Закрыть
+          </button>
+        </div>
+        <div class="lightbox-stage" id="lightbox-stage">
+          <img id="lightbox-img" src="" alt="" draggable="false" />
+        </div>
+        <div class="lightbox-nav">
+          <button type="button" class="lightbox-btn lightbox-nav-btn" id="lightbox-prev" aria-label="Previous">
+            ‹
+          </button>
+          <button type="button" class="lightbox-btn lightbox-nav-btn" id="lightbox-next" aria-label="Next">
+            ›
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="images.js"></script>
+    <script src="gallery.js"></script>
+  </body>
+</html>
