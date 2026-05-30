@@ -786,6 +786,96 @@ footer a {
   }
 }
 
+/* —— Enter page (guest check-in) —— */
+.enter-page-main {
+  padding: 1.5rem 0 3rem;
+  max-width: 36rem;
+}
+
+.enter-page-main h1 {
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  margin: 0 0 0.5rem;
+}
+
+.enter-page-lead {
+  margin: 0 0 1.5rem;
+}
+
+.enter-steps {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.enter-step {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.15rem;
+  box-shadow: var(--shadow);
+}
+
+.enter-step h2 {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.enter-step p {
+  margin: 0;
+  color: var(--ink);
+}
+
+.enter-code {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+.enter-code-inline {
+  display: inline;
+  font-size: inherit;
+  letter-spacing: 0.04em;
+}
+
+.enter-photo {
+  margin: 0.85rem 0 0;
+}
+
+.enter-photo img {
+  width: 100%;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid var(--line);
+}
+
+.enter-photo-wifi {
+  max-width: 18rem;
+}
+
+.enter-photo figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.enter-contact h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.35rem;
+}
+
+.enter-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
 /* —— Gallery page & lightbox —— */
 .gallery-page-main {
   padding: 1.5rem 0 3rem;
