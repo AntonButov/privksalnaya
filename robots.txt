@@ -1,0 +1,5 @@
+User-agent: Yandex
+Disallow: /enter/
+
+User-agent: *
+Disallow: /enter/
